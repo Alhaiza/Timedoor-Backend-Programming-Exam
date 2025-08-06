@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
+            $table->integer('rate');
+            $table->foreignId('book_id')->constrained('books', 'id')->cascadeOnDelete();
             $table->timestamps();
         });
     }
